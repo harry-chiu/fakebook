@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Divider from '../../shared/Divider';
 import { PlusIcon } from '../../../icons';
 import languages from './languages.json';
 import links from './links.json';
@@ -49,11 +50,6 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Divider = styled.div`
-  border-bottom: 1px solid ${palette.login.footer.divider};
-  margin: 8px 0;
-`;
-
 const Copyright = styled.p`
   margin: 16px 0 0;
   font-size: 12px;
@@ -77,7 +73,7 @@ const Footer = () => {
     <Container>
       <Wrapper>
         <LanguageList>
-          {languages.map(language => (
+          {languages.map((language) => (
             <LanguageListItem key={language}>
               <StyledLink to="/">{language}</StyledLink>
             </LanguageListItem>
@@ -90,7 +86,7 @@ const Footer = () => {
         </LanguageList>
         <Divider />
         <LinkList>
-          {links.map(link => (
+          {links.map((link) => (
             <LinkListItem key={link}>
               <StyledLink to="/">{link}</StyledLink>
             </LinkListItem>
