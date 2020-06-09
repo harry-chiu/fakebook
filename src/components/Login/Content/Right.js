@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Tooltip from '../../shared/Tooltip';
+import { QuestionIcon } from '../../../icons';
 import { yearGenerator, monthGenerator, dayGenerator } from '../../../helper';
 import palette from '../../../palette';
 
@@ -25,7 +27,7 @@ const SubTitle = styled.h2`
 const Input = styled.input`
   font-size: 18px;
   padding: 8px;
-  width: ${props => (props.fullWidth ? '100%' : '196px')};
+  width: ${(props) => (props.fullWidth ? '100%' : '196px')};
   border: 1px solid ${palette.login.content.input.border};
   border-radius: 5px;
 
@@ -57,7 +59,7 @@ const InlineContainer = styled.div`
 const Form = styled.form``;
 
 const Select = styled.select`
-  width: ${props => (props.fullWidth ? '100%' : 'unset')};
+  width: ${(props) => (props.fullWidth ? '100%' : 'unset')};
   border: 1px solid ${palette.login.content.select.border};
   padding: 4px;
 `;
@@ -80,7 +82,7 @@ const RadioLabel = styled.label`
 `;
 
 const CustomSexualContainer = styled.div`
-  display: ${props => (props.open ? 'inherit' : 'none')};
+  display: ${(props) => (props.open ? 'inherit' : 'none')};
 `;
 
 const HelperText = styled.p`
@@ -135,6 +137,12 @@ const Fans = styled.p`
   margin: 16px 0 32px;
 `;
 
+const TooltipWrapper = styled.div`
+  display: inline-block;
+  margin-left: 16px;
+  color: ${palette.login.content.icon};
+`;
+
 const Right = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -142,11 +150,11 @@ const Right = () => {
   const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleFirstName = event => setFirstName(event.target.value);
-  const handleLastName = event => setLastName(event.target.value);
-  const handleSexual = event => setSexual(parseInt(event.target.value));
-  const handleAccount = event => setAccount(event.target.value);
-  const handlePassword = event => setPassword(event.target.value);
+  const handleFirstName = (event) => setFirstName(event.target.value);
+  const handleLastName = (event) => setLastName(event.target.value);
+  const handleSexual = (event) => setSexual(parseInt(event.target.value));
+  const handleAccount = (event) => setAccount(event.target.value);
+  const handlePassword = (event) => setPassword(event.target.value);
 
   return (
     <Container>
@@ -189,26 +197,31 @@ const Right = () => {
         <FieldTitle>出生日期</FieldTitle>
         <Field>
           <Select>
-            {yearGenerator().map(year => (
+            {yearGenerator().map((year) => (
               <Option key={year} value={year}>
                 {year}
               </Option>
             ))}
           </Select>
           <Select>
-            {monthGenerator().map(month => (
+            {monthGenerator().map((month) => (
               <Option key={month} value={month}>
                 {month} 月
               </Option>
             ))}
           </Select>
           <Select>
-            {dayGenerator().map(day => (
+            {dayGenerator().map((day) => (
               <Option key={day} value={day}>
                 {day}
               </Option>
             ))}
           </Select>
+          <TooltipWrapper>
+            <Tooltip header="header here" content="content here">
+              <QuestionIcon />
+            </Tooltip>
+          </TooltipWrapper>
         </Field>
         <FieldTitle>性別</FieldTitle>
         <Field>
