@@ -140,7 +140,6 @@ const Fans = styled.p`
 const TooltipWrapper = styled.div`
   display: inline-block;
   margin-left: 16px;
-  color: ${palette.login.content.icon};
 `;
 
 const Right = () => {
@@ -218,7 +217,7 @@ const Right = () => {
             ))}
           </Select>
           <TooltipWrapper>
-            <Tooltip header="header here" content="content here">
+            <Tooltip content="提供生日資料有助於確保你獲得符合年齡的適當 Facebook 體驗。如果你想要變更誰可以看到此內容，請前往你個人檔案的「關於」部分。如需更多詳情，請瀏覽資料政策。">
               <QuestionIcon />
             </Tooltip>
           </TooltipWrapper>
@@ -253,6 +252,11 @@ const Right = () => {
               />
               <RadioLabel>自訂</RadioLabel>
             </RadioWrapper>
+            <TooltipWrapper>
+              <Tooltip content="你可以稍後再變更哪些人能在你的個人檔案看到你的性別。 若要選擇其他性別或不想表明性別，請選擇「自訂」。">
+                <QuestionIcon />
+              </Tooltip>
+            </TooltipWrapper>
           </InlineContainer>
           <CustomSexualContainer open={sexual === 3}>
             <Select fullWidth>
