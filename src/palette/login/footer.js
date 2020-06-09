@@ -1,7 +1,6 @@
 export default {
   text: '#737373',
   link: '#385898',
-  divider: 'lightgrey',
   button: {
     color: '#666666',
     background: '#e0e0e060',
