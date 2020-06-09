@@ -1,3 +1,3 @@
 export default {
-  border: '#c0c0c0',
+  border: '#e0e0e0',
 };
